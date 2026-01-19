@@ -42,10 +42,14 @@ function App() {
                           Zobacz też inne filmy
                       </h2>
                       <ul className="list-group">
+                          {/* ten drugi argument w funkcji w mapie, index - działa jak indeks w pętli (jak w for (int i = 0... ) */}
+                          {/* zlicza który z kolei element w tablicy obecnie obsługuje*/}
                           {videos.map((video, index) => (
                               <li className="list-group-item"
                                   key={index}
                                   onClick={() => {
+                                      {/* i tutaj na przykład: w onClicku ustawia nam wideo na takie o indeksie jaki tu jest*/}
+                                      {/* dla pierwszego elementu index to 0, dla drugiego 1, i tak dalej*/}
                                       setSelectedVideo(index);
                                       let newVideos = videos;
                                       newVideos[index].views += 1;
