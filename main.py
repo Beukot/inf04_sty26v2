@@ -2,6 +2,7 @@ import unittest
 from enum import Enum
 import random
 
+
 # to jest enum. używamy go do nazwania pewnych wartości liczbowych.
 # czyli tam gdzie umieścimy RozmiarSkrytki.Maly python traktuje to jak 10
 # i analogicznie dla RozmiarSkrytki.Sredni i RozmiarSkrytki.Duzy
@@ -51,11 +52,13 @@ class Skrytka:
 
     def otworz_skrytke(self, podany_kod):
         if self.kod_dostepu == podany_kod:
+            wyjeta_zawartosc = self.zawartosc
             self.zawartosc = None
             self.kod_dostepu = None
-            return self.zawartosc
+            return wyjeta_zawartosc
         else:
             return False
+
 
 class testy_skrytki(unittest.TestCase):
     def test_licznika_instancji(self):
@@ -68,6 +71,7 @@ class testy_skrytki(unittest.TestCase):
         kod = Skrytka.generuj_kod()
 
         self.assertTrue(len(kod) == 5 and kod.isnumeric())
+
     def test_umieszczenie_paczki(self):
         skrytka3 = Skrytka(RozmiarSkrytki.Maly)
         kod = skrytka3.umiesc_paczke("paczka")
@@ -79,6 +83,7 @@ class testy_skrytki(unittest.TestCase):
         skrytka4.umiesc_paczke("paczka srednia")
 
         self.assertFalse(skrytka4.umiesc_paczke("paczka srednia"))
+
     def test_umieszczenie_zbyt_duzej_paczki(self):
         skrytka5 = Skrytka(RozmiarSkrytki.Maly)
 
