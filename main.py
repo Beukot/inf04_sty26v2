@@ -51,9 +51,9 @@ class Skrytka:
 
     def otworz_skrytke(self, podany_kod):
         if self.kod_dostepu == podany_kod:
-            return self.zawartosc
             self.zawartosc = None
             self.kod_dostepu = None
+            return self.zawartosc
         else:
             return False
 
