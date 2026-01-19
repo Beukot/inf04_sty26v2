@@ -2,7 +2,10 @@ import unittest
 from enum import Enum
 import random
 
-
+# to jest enum. używamy go do nazwania pewnych wartości liczbowych.
+# czyli tam gdzie umieścimy RozmiarSkrytki.Maly python traktuje to jak 10
+# i analogicznie dla RozmiarSkrytki.Sredni i RozmiarSkrytki.Duzy
+# np. RozmiarSkrytki.Sredni + RozmiarSkrytki.Duzy = 50
 class RozmiarSkrytki(Enum):
     Maly = 10
     Sredni = 20
