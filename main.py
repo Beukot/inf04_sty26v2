@@ -22,6 +22,8 @@ class Skrytka:
         self.zawartosc = None
         self.kod_dostepu = None
 
+    # tak się robi metodę statyczną - używa się ją Skrytka.generuj_kod() - nie należy do instancji klasy
+    # nie używa też self, bo nie wpływa zazwyczaj na pola funkcji
     @staticmethod
     def generuj_kod():
         nowyKod = ""
