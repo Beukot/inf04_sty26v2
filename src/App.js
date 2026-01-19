@@ -25,10 +25,12 @@ function App() {
                           wyświetleń: {videos[selectedVideo].views}
                       </p>
                       <p>
+                          {/*   To tutaj jest trochę do wykucia na pamięć żeby działało :( */}
                           <button type="button" className="btn btn-primary" onClick={() => {
-                                  let newVideos = videos;
-                                  newVideos[selectedVideo].likes += 1;
+                                  let newVideos = videos;              // tworzymy kopie tablicy
+                                  newVideos[selectedVideo].likes += 1; // zwiększamy wartość którą chcemy zmienić
                                   setVideos([...newVideos]);
+                                  // tutaj musi być takie coś [...newVideos] bo inaczej sie nie odświeży na stronie
                               }}>
                               Lubię to!
                           </button>
